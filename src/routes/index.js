@@ -3,6 +3,10 @@ const express= require('express');
 const router= express.Router();
 const conexion= require('../database');
 
+const redis=require('redis');
+
+const redisCliente=redis.createClient();
+
 
 router.get('/platos',(req,res) =>{
     conexion.query('SELECT * FROM platos',(err,rows)=>{
